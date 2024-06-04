@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="maintitle">
+      <h2>Max & Min Rate of load</h2>
+    </div>
+
+    <div class="inputGroup">
+      <div style="display: flex; flex-direction: column;">
+        <label for="shipperState"> Shipper ST</label>
+        <input maxlength="2" onkeyup="this.value = this.value.toUpperCase()" id="shipperState" type="text">
+        <label for="pickupCity"> Pickup City</label>
+        <input type="text" id="pickupCity">
+      </div>
+
+
+
+      <div style="display: flex; flex-direction: column;">
+        <label for="deliveryState">Deliver ST</label>
+        <input maxlength="2" onkeyup="this.value = this.value.toUpperCase()" id="deliveryState" type="text">
+
+        <label for="deliveryCity">Deliver City</label>
+        <input type="text" id="deliveryCity">
+      </div>
+
+
+    </div>
+    <div class="animbtn">
+      <title>BUTTONS ANIMATION</title>
+
+      <button class="box__link button-animation" id="submitButton" onclick="filterData()">
+        Search
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+    <div id="result">
+      <p>Max Price: <span id="maxPrice"></span></p>
+      <p>Max Price Time: <span id="maxPriceTime"></span></p>
+      <p>Min Price: <span id="minPrice"></span></p>
+      <p>Min Price Time: <span id="minPriceTime"></span></p>
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>
