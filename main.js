@@ -1,5 +1,4 @@
 
-// let arrKeys = ['DriverName', 'Status', 'DitatNum', 'LoadID', 'Broker', 'RouteType', 'EQ', 'TIME', 'DATE', 'PICKUP', 'ST', 'deltime', 'delDate', 'DelCity', 'DelST', 'team', 'DriverPay', 'Esc', 'RateCon', 'Note', 'TotMIles', '1', '2', '3', '4', '5', '6', '7']
 let arrArrs = [
 
   [
@@ -11465,6 +11464,44 @@ let arrArrs = [
 
 
 
+// function filterData() {
+//   const shipperState = document.getElementById('shipperState').value.trim().toUpperCase();
+//   const pickupCity = document.getElementById('pickupCity').value.trim().toUpperCase();
+//   const deliveryState = document.getElementById('deliveryState').value.trim().toUpperCase();
+//   const deliveryCity = document.getElementById('deliveryCity').value.trim().toUpperCase();
+
+//   let filteredData = arrArrs.filter(item =>
+//     item[10].toUpperCase() === shipperState &&
+//     item[9].toUpperCase() === pickupCity &&
+//     item[14].toUpperCase() === deliveryState &&
+//     item[13].toUpperCase() === deliveryCity
+//   );
+
+//   console.log(filteredData);
+
+//   let prices = filteredData.map(item => parseFloat(item[16].replace('$', '').replace(',', '')));
+
+//   if (prices.length > 0) {
+//     const maxPrice = Math.max(...prices);
+//     const minPrice = Math.min(...prices);
+
+//     const maxPriceIndex = prices.indexOf(maxPrice);
+//     const minPriceIndex = prices.indexOf(minPrice);
+
+//     const maxPriceTime = filteredData[maxPriceIndex][7] + ' ' + filteredData[maxPriceIndex][8];
+//     const minPriceTime = filteredData[minPriceIndex][7] + ' ' + filteredData[minPriceIndex][8];
+
+//     document.getElementById('maxPrice').textContent = '$' + maxPrice;
+//     document.getElementById('maxPriceTime').textContent = maxPriceTime;
+//     document.getElementById('minPrice').textContent = '$' + minPrice;
+//     document.getElementById('minPriceTime').textContent = minPriceTime;
+//   } else {
+//     document.getElementById('maxPrice').textContent = 'Not Found';
+//     document.getElementById('maxPriceTime').textContent = 'Not Found';
+//     document.getElementById('minPrice').textContent = 'Not Found';
+//     document.getElementById('minPriceTime').textContent = 'Not Found';
+//   }
+// }
 function filterData() {
   const shipperState = document.getElementById('shipperState').value.trim().toUpperCase();
   const pickupCity = document.getElementById('pickupCity').value.trim().toUpperCase();
@@ -11489,17 +11526,38 @@ function filterData() {
     const maxPriceIndex = prices.indexOf(maxPrice);
     const minPriceIndex = prices.indexOf(minPrice);
 
-    const maxPriceTime = filteredData[maxPriceIndex][7] + ' ' + filteredData[maxPriceIndex][8];
-    const minPriceTime = filteredData[minPriceIndex][7] + ' ' + filteredData[minPriceIndex][8];
+    const maxPriceData = filteredData[maxPriceIndex];
+    const minPriceData = filteredData[minPriceIndex];
+
+    const maxPriceTime = maxPriceData[7] + ' ' + maxPriceData[8];
+    const minPriceTime = minPriceData[7] + ' ' + minPriceData[8];
 
     document.getElementById('maxPrice').textContent = '$' + maxPrice;
     document.getElementById('maxPriceTime').textContent = maxPriceTime;
+    document.getElementById('maxLoadId').textContent = maxPriceData[2];
+    document.getElementById('maxLoadNumber').textContent = maxPriceData[3];
+    document.getElementById('maxDriverName').textContent = maxPriceData[0];
+    document.getElementById('maxBroker').textContent = maxPriceData[4];
+
     document.getElementById('minPrice').textContent = '$' + minPrice;
     document.getElementById('minPriceTime').textContent = minPriceTime;
+    document.getElementById('minLoadId').textContent = minPriceData[2];
+    document.getElementById('minLoadNumber').textContent = minPriceData[3];
+    document.getElementById('minDriverName').textContent = minPriceData[0];
+    document.getElementById('minBroker').textContent = minPriceData[4];
   } else {
     document.getElementById('maxPrice').textContent = 'Not Found';
     document.getElementById('maxPriceTime').textContent = 'Not Found';
+    document.getElementById('maxLoadId').textContent = 'Not Found';
+    document.getElementById('maxLoadNumber').textContent = 'Not Found';
+    document.getElementById('maxDriverName').textContent = 'Not Found';
+    document.getElementById('maxBroker').textContent = 'Not Found';
+
     document.getElementById('minPrice').textContent = 'Not Found';
     document.getElementById('minPriceTime').textContent = 'Not Found';
+    document.getElementById('minLoadId').textContent = 'Not Found';
+    document.getElementById('minLoadNumber').textContent = 'Not Found';
+    document.getElementById('minDriverName').textContent = 'Not Found';
+    document.getElementById('minBroker').textContent = 'Not Found';
   }
 }
