@@ -1,6 +1,5 @@
 
 let arrArrs = [
-
   [
     "Available1",
     "CANCELLED",
@@ -11461,47 +11460,6 @@ let arrArrs = [
     "23:55"
   ]
 ]
-
-
-
-// function filterData() {
-//   const shipperState = document.getElementById('shipperState').value.trim().toUpperCase();
-//   const pickupCity = document.getElementById('pickupCity').value.trim().toUpperCase();
-//   const deliveryState = document.getElementById('deliveryState').value.trim().toUpperCase();
-//   const deliveryCity = document.getElementById('deliveryCity').value.trim().toUpperCase();
-
-//   let filteredData = arrArrs.filter(item =>
-//     item[10].toUpperCase() === shipperState &&
-//     item[9].toUpperCase() === pickupCity &&
-//     item[14].toUpperCase() === deliveryState &&
-//     item[13].toUpperCase() === deliveryCity
-//   );
-
-//   console.log(filteredData);
-
-//   let prices = filteredData.map(item => parseFloat(item[16].replace('$', '').replace(',', '')));
-
-//   if (prices.length > 0) {
-//     const maxPrice = Math.max(...prices);
-//     const minPrice = Math.min(...prices);
-
-//     const maxPriceIndex = prices.indexOf(maxPrice);
-//     const minPriceIndex = prices.indexOf(minPrice);
-
-//     const maxPriceTime = filteredData[maxPriceIndex][7] + ' ' + filteredData[maxPriceIndex][8];
-//     const minPriceTime = filteredData[minPriceIndex][7] + ' ' + filteredData[minPriceIndex][8];
-
-//     document.getElementById('maxPrice').textContent = '$' + maxPrice;
-//     document.getElementById('maxPriceTime').textContent = maxPriceTime;
-//     document.getElementById('minPrice').textContent = '$' + minPrice;
-//     document.getElementById('minPriceTime').textContent = minPriceTime;
-//   } else {
-//     document.getElementById('maxPrice').textContent = 'Not Found';
-//     document.getElementById('maxPriceTime').textContent = 'Not Found';
-//     document.getElementById('minPrice').textContent = 'Not Found';
-//     document.getElementById('minPriceTime').textContent = 'Not Found';
-//   }
-// }
 function filterData() {
   const shipperState = document.getElementById('shipperState').value.trim().toUpperCase();
   const pickupCity = document.getElementById('pickupCity').value.trim().toUpperCase();
