@@ -11531,7 +11531,8 @@ function filterData() {
     document.getElementById("maxDriverName").textContent = maxPriceData[0];
     document.getElementById("maxBroker").textContent = maxPriceData[4];
 
-    document.getElementById("minPrice").textContent = "$" + minPrice;
+    document.getElementById("minPrice").textContent =
+      "$" + minPrice > 0 ? minPrice : "Cancelled";
     document.getElementById("minPriceTime").textContent = minPriceTime;
     document.getElementById("minLoadId").textContent = minPriceData[2];
     document.getElementById("minLoadNumber").textContent = minPriceData[3];
