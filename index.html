@@ -1,125 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-  <div class="container">
-    <div class="maintitle">
-      <h2>Max & Min Rate of load</h2>
-    </div>
-
-    <div class="inputGroup">
-      <div style="display: flex; flex-direction: column;">
-        <label for="shipperState"> Shipper ST</label>
-        <input maxlength="2" onkeyup="this.value = this.value.toUpperCase()" id="shipperState" type="text">
-        <label for="pickupCity"> Pickup City</label>
-        <input type="text" id="pickupCity">
+  <body>
+    <div class="container">
+      <div class="maintitle">
+        <h2>Max & Min Rate of load</h2>
       </div>
 
+      <div class="inputGroup">
+        <div style="display: flex; flex-direction: column">
+          <label for="shipperState"> Shipper ST</label>
+          <input
+            maxlength="2"
+            onkeyup="this.value = this.value.toUpperCase()"
+            id="shipperState"
+            type="text"
+          />
+          <label for="pickupCity"> Pickup City</label>
+          <input type="text" id="pickupCity" />
+        </div>
 
+        <div style="display: flex; flex-direction: column">
+          <label for="deliveryState">Deliver ST</label>
+          <input
+            maxlength="2"
+            onkeyup="this.value = this.value.toUpperCase()"
+            id="deliveryState"
+            type="text"
+          />
 
-      <div style="display: flex; flex-direction: column;">
-        <label for="deliveryState">Deliver ST</label>
-        <input maxlength="2" onkeyup="this.value = this.value.toUpperCase()" id="deliveryState" type="text">
+          <label for="deliveryCity">Deliver City</label>
+          <input type="text" id="deliveryCity" />
+        </div>
+      </div>
+      <div class="animbtn">
+        <title>BUTTONS ANIMATION</title>
 
-        <label for="deliveryCity">Deliver City</label>
-        <input type="text" id="deliveryCity">
+        <button
+          class="box__link button-animation"
+          id="submitButton"
+          onclick="filterData()"
+        >
+          Search
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
+      <div id="result">
+        <div>
+          <div>
+            <label>Max Price:</label>
+            <span id="maxPrice"></span>
+          </div>
+          <div>
+            <label>Max Price Time:</label>
+            <span id="maxPriceTime"></span>
+          </div>
+          <div>
+            <label>Max Load ID:</label>
+            <span id="maxLoadId"></span>
+          </div>
+          <div>
+            <label>Max Load Number:</label>
+            <span id="maxLoadNumber"></span>
+          </div>
+          <div>
+            <label>Max Driver Name:</label>
+            <span id="maxDriverName"></span>
+          </div>
+          <div>
+            <label>Max Broker:</label>
+            <span id="maxBroker"></span>
+          </div>
 
-    </div>
-    <div class="animbtn">
-      <title>BUTTONS ANIMATION</title>
+          <br />
+          <hr />
+          <br />
+          <div>
+            <label>Min Price: </label>
+            <span id="minPrice"></span>
+          </div>
+          <div>
+            <label>Min Price Time:</label>
+            <span id="minPriceTime"></span>
+          </div>
+          <div>
+            <label>Min Load ID:</label>
+            <span id="minLoadId"></span>
+          </div>
+          <div>
+            <label>Min Load Number:</label>
+            <span id="minLoadNumber"></span>
+          </div>
+          <div>
+            <label>Min Driver Name:</label>
+            <span id="minDriverName"></span>
+          </div>
+          <div>
+            <label>Min Broker:</label>
+            <span id="minBroker"></span>
+          </div>
+        </div>
+      </div>
 
-      <button class="box__link button-animation" id="submitButton" onclick="filterData()">
-        Search
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-    </div>
-
-    <div id="result">
-      <!-- <p>Max Price: <span id="maxPrice"></span></p> -->
-      <!-- <p>Max Price Time: <span id="maxPriceTime"></span></p> -->
-      <!-- <p>Min Price: <span id="minPrice"></span></p> -->
-      <!-- <p>Min Price Time: <span id="minPriceTime"></span></p> -->
-
-
+      <br />
+      <br />
+      <hr />
+      <br />
+      <br />
+      <h4>
+        <div style="color: white; text-align: center">
+          Lastes Load on: <span id="resultDate"></span>
+        </div>
+      </h4>
+      <br />
+      <br />
       <div>
-        <div>
-          <label>Max Price:</label>
-          <span id="maxPrice"></span>
-        </div>
-        <div>
-          <label>Max Price Time:</label>
-          <span id="maxPriceTime"></span>
-        </div>
-        <div>
-          <label>Max Load ID:</label>
-          <span id="maxLoadId"></span>
-        </div>
-        <div>
-          <label>Max Load Number:</label>
-          <span id="maxLoadNumber"></span>
-        </div>
-        <div>
-          <label>Max Driver Name:</label>
-          <span id="maxDriverName"></span>
-        </div>
-        <div>
-          <label>Max Broker:</label>
-          <span id="maxBroker"></span>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-        <div>
-          <label>Min Price: </label>
-          <span id="minPrice"></span>
-        </div>
-        <div>
-          <label>Min Price Time:</label>
-          <span id="minPriceTime"></span>
-        </div>
-        <div>
-          <label>Min Load ID:</label>
-          <span id="minLoadId"></span>
-        </div>
-        <div>
-          <label>Min Load Number:</label>
-          <span id="minLoadNumber"></span>
-        </div>
-        <div>
-          <label>Min Driver Name:</label>
-          <span id="minDriverName"></span>
-        </div>
-        <div>
-          <label>Min Broker:</label>
-          <span id="minBroker"></span>
-        </div>
+        <label>Price:</label>
+        <span id="price"></span>
       </div>
+      <div>
+        <label>Price Time:</label>
+        <span id="priceTime"></span>
+      </div>
+      <div>
+        <label>Load ID:</label>
+        <span id="loadId"></span>
+      </div>
+      <div>
+        <label>Load Number:</label>
+        <span id="loadNumber"></span>
+      </div>
+      <div>
+        <label>Driver Name:</label>
+        <span id="driverName"></span>
+      </div>
+      <div>
+        <label>Broker:</label>
+        <span id="broker"></span>
+      </div>
+      <br />
+      <br />
     </div>
 
-
-
-  </div>
-
-
-
-
-
-  <script src="main.js"></script>
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>
